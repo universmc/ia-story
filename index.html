@@ -10,8 +10,41 @@
 <body>
     <!-- En-tête de la page -->
     <header>
-        <h1>Bienvenue dans IA-Story Dashboard</h1>
+        <!-- Menu de navigation -->
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Épisodes</a></li>
+                <li><a href="#">À Propos</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <!-- Prompt de recherche -->
+            <div class="search-prompt">
+                <input type="text" id="search-input" placeholder="Rechercher...">
+                <button id="search-button">Rechercher</button>
+            </div>
+             <!-- Accès à usr/config -->
+            <div class="user-config">
+                <a href="usr/config">Configuration</a>
+            </div>
+        </nav>
+
     </header>
+    
+    <!-- Section du héros avec le carrousel d'images -->
+    <section class="hero-banner">
+        <div class="carousel">
+            <!-- Insérez ici les images du carrousel depuis le répertoire database/rush/img/ -->
+        </div>
+        <button id="prevBtn">Précédent</button>
+        <button id="nextBtn">Suivant</button>
+    </section>
+    
+    <!-- Reste du contenu de votre page -->
+    <main>
+        <!-- Insérez ici le contenu du tableau de bord, comme les épisodes, etc. -->
+    </main>
+    
 
     <!-- Section principale du tableau de bord -->
     <main>
@@ -24,6 +57,6 @@
     </footer>
 
     <!-- Lien vers le fichier JavaScript pour les fonctionnalités dynamiques -->
-    <script src="js/script.js"></script>
+    <script src="src/js/script.js"></script>
 </body>
 </html>
