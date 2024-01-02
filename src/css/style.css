@@ -1,3 +1,5 @@
+
+/* Styles globaux */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -5,6 +7,32 @@ body {
     text-align: center;
     padding: 10px;
 }
+/* En-tête */
+header {
+    background-color: #333; /* Couleur de fond de l'en-tête */
+    color: #fff; /* Couleur du texte de l'en-tête */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Styles pour le contenu principal */
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; /* Couleur de fond du contenu principal */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+/* Pied de page */
+footer {
+    background-color: #333; /* Couleur de fond du pied de page */
+    color: #fff; /* Couleur du texte du pied de page */
+    text-align: center;
+    padding: 10px;
+}
+
+/* Ajoutez d'autres styles spécifiques à votre tableau de bord ci-dessous */
 
 .container {
     width: 80%;
