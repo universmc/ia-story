@@ -40,13 +40,37 @@ dropdownMenu.addEventListener("change", (event) => {
 
 
 // carrousel 
-// Variables pour le carrousel
+// Sélectionnez les éléments DOM
 const carousel = document.querySelector('.carousel');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 let scrollValue = 0;
 const imageWidth = 100; // Largeur d'une image en pourcentage
-const scrollSpeed = 1; // Vitesse de défilement (plus petit = plus lent)
+const scrollSpeed = 0.5; // Vitesse de défilement (plus petit = plus lent)
+
+// Récupérez la div des images générées par PHP
+const carouselImages = document.querySelector('.carousel-images');
+
+// Récupération dynamique de la liste des fichiers .jpeg du répertoire avec PHP
+fetch('https://oc.univers-mc.cloud/tmp/ia-story/database/rush/img')
+    .then(response => response.text())
+    .then(data => {
+        // Analyse du contenu de la page pour extraire les noms des fichiers .jpeg
+        const fileNames = data.match(/href="([^"]+\.jpeg)"/g)
+            .map(match => match.match(/href="([^"]+\.jpeg)"/)[1]);
+        
+        // Création des éléments img pour chaque image et ajout au carrousel
+        fileNames.forEach(fileName => {
+            const imgElement = document.createElement('img');
+            imgElement.src = `https://oc.univers-mc.cloud/tmp/ia-story/database/rush/img/${fileName}`;
+            carouselImages.appendChild(imgElement);
+        });
+
+        // Ajout des écouteurs d'événements pour les boutons précédents et suivants
+        prevBtn.addEventListener('click', scrollLeft);
+        nextBtn.addEventListener('click', scrollRight);
+    })
+    .catch(error => console.error(error));
 
 // Fonction pour faire défiler le carrousel à gauche
 function scrollLeft() {
@@ -65,24 +89,3 @@ function scrollRight() {
     }
     carousel.style.transform = `translateX(-${scrollValue}%)`;
 }
-
-// Ajout des écouteurs d'événements pour les boutons précédents et suivants
-prevBtn.addEventListener('click', scrollLeft);
-nextBtn.addEventListener('click', scrollRight);
-
-// Récupération dynamique de la liste des fichiers .jpeg du répertoire
-fetch('https://universmc.github.io/ia-story/database/rush/img/')
-    .then(response => response.text())
-    .then(data => {
-        // Analyse du contenu de la page pour extraire les noms des fichiers .jpeg
-        const fileNames = data.match(/href="([^"]+\.jpeg)"/g)
-            .map(match => match.match(/href="([^"]+\.jpeg)"/)[1]);
-        
-        // Création des éléments img pour chaque image
-        fileNames.forEach(fileName => {
-            const imgElement = document.createElement('img');
-            imgElement.src = `https://universmc.github.io/ia-story/database/rush/img/${fileName}`;
-            carousel.appendChild(imgElement);
-        });
-    })
-    .catch(error => console.error(error));

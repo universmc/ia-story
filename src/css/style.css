@@ -52,38 +52,70 @@ nav ul li a {
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: 100px;
-}
-
-.carousel {
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.carousel img {
-    width: 100%;
     height: auto;
 }
 
-button#prevBtn, button#nextBtn {
+/* Style de base pour le carrousel */
+.carousel {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+
+  .carousel .carousel-item {
+    display: inline-block;
+
+    transition: transform 0.5s ease-in-out;
+  }
+  .carousel-item {
+    padding: 25px;
+ /* Largeur d'une image */
+  }
+  .carousel-images {
+    display: flex;
+    gap:5px;
+    padding: 5px;
+  }
+  .carousel img {
+    width: 128px; /* Ajustez la largeur au besoin */
+    height: auto; /* Ajustez la hauteur au besoin */
+    object-fit: cover; /* Pour ajuster la taille de l'image tout en maintenant l'aspect ratio */
+  }
+  
+  /* Style des boutons de navigation */
+  #prevBtn,
+  #nextBtn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
     cursor: pointer;
-}
-
-button#prevBtn {
-    left: 0;
-}
-
-button#nextBtn {
-    right: 0;
-}
-
+    background-color: rgba(0, 0, 0, 0.5); /* Couleur de fond des boutons */
+    color: #fff; /* Couleur du texte des boutons */
+    padding: 10px 20px; /* Espacement des boutons */
+    border: none;
+    border-radius: 5px;
+  }
+  
+  #prevBtn {
+    left: 10px; /* Position du bouton "Précédent" */
+  }
+  
+  #nextBtn {
+    right: 10px; /* Position du bouton "Suivant" */
+  }
+  
+  /* Style des boutons au survol */
+  #prevBtn:hover,
+  #nextBtn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
 
 
 
